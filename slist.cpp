@@ -193,8 +193,8 @@ bool Check(SLList<char> &sl)
 	}
 	if (!stack.IsEmpty())
 	{
-		cout << "括号不匹配！" << endl;
-		cout << "左括号多余" << endl;
+		//cout << "括号不匹配！" << endl;
+		//cout << "左括号多余" << endl;
 		return false;
 	}
 	cout << "括号匹配!" << endl;
