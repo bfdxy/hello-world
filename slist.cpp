@@ -81,20 +81,20 @@ public:
 };
 
 template<class T>
-SLList<T>::SLList() //Éú³É¿Õ±í
+SLList<T>::SLList() //ç”Ÿæˆç©ºè¡¨
 {
 	head = tail = currptr = new SLNode<T>(head);
 	size = 0;
 }
 template<class T>
-SLList<T>::SLList(T &item)   //Éú³Éº¬Ò»½Úµã±í
+SLList<T>::SLList(T &item)   //ç”Ÿæˆå«ä¸€èŠ‚ç‚¹è¡¨
 {
 	tail = currptr = new SLNode<T>(item, head);
 	head = new SLNode<T>(currptr);
 	size = 1;
 }
 template<class T>
-SLList<T>::~SLList()     //Îö¹¹
+SLList<T>::~SLList()     //ææ„
 {
 	while (!IsEmpty())
 	{
@@ -109,7 +109,7 @@ bool SLList<T>::Find(int k, T &item)const
 {
 	if (k<1 || k>size)
 	{
-		cout << "´æÈ¡Î»ÖÃ²»ºÏ·¨" << endl;
+		cout << "å­˜å–ä½ç½®ä¸åˆæ³•" << endl;
 		return false;
 	}
 	SLNode<T> *p;
@@ -118,7 +118,7 @@ bool SLList<T>::Find(int k, T &item)const
 	for (i = 1; i<k; i++)
 		p = p->next;
 	item = p->data;
-	//cout<<"µÚ"<<k<<"ÏîÖµÎª"<<item<<endl;
+	//cout<<"ç¬¬"<<k<<"é¡¹å€¼ä¸º"<<item<<endl;
 	return true;
 }
 
@@ -132,16 +132,16 @@ int SLList<T>::Search(const T &item)const
 	{
 		if (p->data == item)
 		{
-			cout << item << "Î»ÓÚÁ´±íÖĞµÄµÚ" << k << "Ïî" << endl;
+			cout << item << "ä½äºé“¾è¡¨ä¸­çš„ç¬¬" << k << "é¡¹" << endl;
 			return k;
 		}
 		p = p->next;
 	}
-	cout << "Á´±íÖĞÎŞÖµÎª" << item << "µÄÏî" << endl;
+	cout << "é“¾è¡¨ä¸­æ— å€¼ä¸º" << item << "çš„é¡¹" << endl;
 	return -1;
 }
 template<class T>
-void SLList<T>::Insert(const T &item)      //ÔÚµ±Ç°½Úµãºó²åÈë
+void SLList<T>::Insert(const T &item)      //åœ¨å½“å‰èŠ‚ç‚¹åæ’å…¥
 {
 	currptr->next = new SLNode<T>(item, currptr->next);
 	if (tail == currptr)
@@ -149,7 +149,7 @@ void SLList<T>::Insert(const T &item)      //ÔÚµ±Ç°½Úµãºó²åÈë
 	size++;
 }
 template<class T>
-void SLList<T>::InsertFromTail(const T &item)    //ÔÚ±íÎ²²åÈë
+void SLList<T>::InsertFromTail(const T &item)    //åœ¨è¡¨å°¾æ’å…¥
 {
 	tail->next = new SLNode<T>(item, head);
 	tail = tail->next;
@@ -178,14 +178,14 @@ bool Check(SLList<char> &sl)
 		{
 			if (!stack.Pop(d))
 			{
-				cout << "À¨ºÅ²»Æ¥Åä£¡" << endl;
-				cout << "ÓÒÀ¨ºÅ¶àÓà" << endl;
+				cout << "æ‹¬å·ä¸åŒ¹é…ï¼" << endl;
+				cout << "å³æ‹¬å·å¤šä½™" << endl;
 				return false;
 			}
 			if (c != d + 1 && c != d + 2)
 			{
-				cout << "À¨ºÅ²»Æ¥Åä£¡" << endl;
-				cout << "Î»ÖÃ£º" << i << endl;
+				cout << "æ‹¬å·ä¸åŒ¹é…ï¼" << endl;
+				cout << "ä½ç½®ï¼š" << i << endl;
 				return false;
 			}
 		}
@@ -193,11 +193,11 @@ bool Check(SLList<char> &sl)
 	}
 	if (!stack.IsEmpty())
 	{
-		cout << "À¨ºÅ²»Æ¥Åä£¡" << endl;
-		cout << "×óÀ¨ºÅ¶àÓà" << endl;
+		cout << "æ‹¬å·ä¸åŒ¹é…ï¼" << endl;
+		cout << "å·¦æ‹¬å·å¤šä½™" << endl;
 		return false;
 	}
-	cout << "À¨ºÅÆ¥Åä!" << endl;
+	cout << "æ‹¬å·åŒ¹é…!" << endl;
 	return true;
 }
 
@@ -205,7 +205,7 @@ int main()
 {
 	SLList<char> list;
 	string s;
-	cout << "ÇëÊäÈëËãÊõ±í´ïÊ½s£º" << endl;
+	//cout << "è¯·è¾“å…¥ç®—æœ¯è¡¨è¾¾å¼sï¼š" << endl;
 	cin >>s;
 	InPut(s, list);
 	Check(list);
